@@ -1,0 +1,1784 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Zone</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-dark">
+    <header>
+        <nav class="navbar navbar-expand-lg bg-black navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold" href="#">
+                    Player Zone
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                Início
+                            </a>
+                            <a href="#" class="btn btn-outline-warning me-3">
+
+                                Carrinho
+
+                                <span id="contadorCarrinho" class="badge bg-danger">
+
+                                    0
+
+                                </span>
+
+                                <button class="btn btn-outline-success me-2" onclick="abrirCarrinho()">
+                                    Ver Carrinho
+                                </button>
+
+                            </a>
+
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                                Categorias
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li>
+                                    <a class="dropdown-item" href="esportes.html">
+                                        Esportes
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="corrida.html">
+                                        Corrida
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="acao.html">
+                                        Ação
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+
+                            </a>
+                        </li>
+                    </ul>
+                    <form class="d-flex me-3" onsubmit="pesquisar(event)">
+                        <input class="form-control me-2" type="search" placeholder="Pesquisar jogo">
+                        <button class="btn btn-outline-primary">
+                            Buscar
+                        </button>
+                    </form>
+                    <span id="usuario" class="text-white me-3">
+                    </span>
+                    <a href="login.html" class="btn btn-outline-light">
+                        Login
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container-fluid">
+
+        <!-- HERO / CAROUSEL -->
+
+        <section id="carouselExampleIndicators" class="carousel slide mb-5" data-bs-ride="carousel">
+
+            <div class="carousel-indicators">
+
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                    class="active"></button>
+
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
+
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
+
+            </div>
+
+            <div class="carousel-inner rounded shadow">
+
+                <div class="carousel-item active">
+
+                    <img src="https://wallpapercave.com/wp/wp2928790.jpg" class="d-block w-100"
+                        style="height:65vh; object-fit:contain; background:black;">
+
+                    <div class="carousel-caption">
+
+                        <div class="bg-dark bg-opacity-75 rounded p-3 mx-auto" style="max-width:500px;">
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="carousel-item">
+
+                    <img src="https://www.esports.net/br/wp-content/uploads/sites/3/2024/11/jogos-online-gratis-17.webp"
+                        class="d-block w-100" style="height:65vh; object-fit:contain; background:black;">
+
+                    <div class="carousel-caption">
+
+                        <div class="bg-dark bg-opacity-75 rounded p-3 mx-auto" style="max-width:500px;">
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="carousel-item">
+
+                    <img src="/promo.png" class="d-block w-100"
+                        style="height:65vh; object-fit:contain; background:black;">
+
+                    <div class="carousel-caption">
+
+                        <div class="bg-dark bg-opacity-75 rounded p-3 mx-auto" style="max-width:500px;">
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+
+                <span class="carousel-control-prev-icon"></span>
+
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+
+                <span class="carousel-control-next-icon"></span>
+
+            </button>
+
+        </section>
+
+        <div class="container mb-3 text-center">
+            <button id="btnVoltar" class="btn btn-warning" onclick="voltarCatalogo()" style="display:none;">
+                Voltar ao catálogo
+            </button>
+        </div>
+
+        <div id="semResultados" class="text-center text-white mt-3" style="display:none;">
+            Nenhum jogo encontrado
+        </div>
+
+        <section class="container mb-5">
+
+            <h2 class="text-white text-center mb-5">
+
+                CATÁLOGO DE JOGOS
+
+            </h2>
+
+            <div class="row g-4">
+
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+
+                    <div class="card bg-black h-100">
+
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1091500/header.jpg"
+                            class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>Cyberpunk 2077</h5>
+
+                            <p class="small text-secondary">
+                                RPG / Ação
+                            </p>
+
+                            <p>
+                                Explore Night City em uma aventura futurista.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                R$ 149,90
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2"
+                                onclick="adicionarCarrinho('Cyberpunk 2077',149,99)">
+
+                                Comprar
+
+                            </button>
+
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#cyberModal">
+
+                                Saiba Mais
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+
+                    <div class="card bg-black h-100">
+
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/271590/header.jpg"
+                            class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>GTA V</h5>
+
+                            <p class="small text-secondary">
+                                Mundo Aberto
+                            </p>
+
+                            <p>
+                                Los Santos cheia de ação, assaltos e caos.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                R$ 89,90
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2" onclick="adicionarCarrinho('GTA V',199.90)">
+
+                                Comprar
+
+                            </button>
+
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#gtaModal">
+
+                                Saiba Mais
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+
+                    <div class="card bg-black h-100">
+
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1245620/header.jpg"
+                            class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>Elden Ring</h5>
+
+                            <p class="small text-secondary">
+                                RPG / Soulslike
+                            </p>
+
+                            <p>
+                                Desafios intensos em um mundo sombrio.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                R$ 229,90
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2" onclick="adicionarCarrinho('Elgen Ring',229,90)">
+
+                                Comprar
+
+                            </button>
+
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#eldenModal">
+
+                                Saiba Mais
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+
+                    <div class="card bg-black h-100">
+
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/239140/header.jpg"
+                            class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>Dying Light</h5>
+
+                            <p class="small text-secondary">
+                                Zombie / Survival
+                            </p>
+
+                            <p>
+                                Sobreviva em uma cidade infestada.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                R$ 69,90
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2" onclick="adicionarCarrinho('Dying Light',69,90)">
+
+                                Comprar
+
+                            </button>
+
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#dyingModal">
+
+                                Saiba Mais
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+
+                    <div class="card bg-black h-100">
+
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1551360/header.jpg"
+                            class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>Forza Horizon 5</h5>
+
+                            <p class="small text-secondary">
+                                Corrida
+                            </p>
+
+                            <p>
+                                Velocidade extrema em mundo aberto.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                R$ 199,90
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2"
+                                onclick="adicionarCarrinho('Forza Horizon',199.90)">
+
+                                Comprar
+
+                            </button>
+
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#forzaModal">
+
+                                Saiba Mais
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+
+                    <div class="card bg-black h-100">
+
+                        <img src="https://futcoin.net/uploads/blog/20250411_1744351747_medium.jpg" class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>EA Sports FC 26</h5>
+
+                            <p class="small text-secondary">
+                                Esporte
+                            </p>
+
+                            <p>
+                                Monte seu time e dispute campeonatos.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                R$ 349,90
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2"
+                                onclick="adicionarCarrinho('EA Sports FC 26',349.90)">
+
+                                Comprar
+
+                            </button>
+
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#fcModal">
+
+                                Saiba Mais
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+
+                    <div class="card bg-black h-100">
+
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1174180/header.jpg"
+                            class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>Red Dead Redemption 2</h5>
+
+                            <p class="small text-secondary">
+                                Aventura
+                            </p>
+
+                            <p>
+                                Velho oeste, ação e mundo aberto.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                R$ 129,90
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2"
+                                onclick="adicionarCarrinho('Red Dead Redemption 2',129.90)">
+
+                                Comprar
+
+                            </button>
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#rdrModal">
+
+                                Saiba Mais
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+
+                    <div class="card bg-black h-100">
+
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1938090/header.jpg"
+                            class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>Call of Duty</h5>
+
+                            <p class="small text-secondary">
+                                FPS
+                            </p>
+
+                            <p>
+                                Combate online intenso e multiplayer.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                R$ 289,90
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2"
+                                onclick="adicionarCarrinho('Call of Duty',289.90)">
+
+                                Comprar
+
+                            </button>
+
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#codModal">
+
+                                Saiba Mais
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+
+                    <div class="card bg-black h-100">
+
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2050650/header.jpg"
+                            class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>Resident Evil 4</h5>
+
+                            <p class="small text-secondary">
+                                Terror
+                            </p>
+
+                            <p>
+                                Sobreviva ao horror em uma vila sombria.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                R$ 179,90
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2"
+                                onclick="adicionarCarrinho('Resident Evil 4',179.90)">
+
+                                Comprar
+
+                            </button>
+
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#re4Modal">
+
+                                Saiba Mais
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+
+                    <div class="card bg-black h-100">
+
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1971870/header.jpg"
+                            class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>Mortal Kombat 1</h5>
+
+                            <p class="small text-secondary">
+                                Luta
+                            </p>
+
+                            <p>
+                                Batalhas brutais com gráficos absurdos.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                R$ 249,90
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2"
+                                onclick="adicionarCarrinho('Mortal Kombat 1',249.90)">
+
+                                Comprar
+
+                            </button>
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#mkModal">
+
+                                Saiba Mais
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+
+                    <div class="card bg-black h-100">
+
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/292030/header.jpg"
+                            class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>The Witcher 3</h5>
+
+                            <p class="small text-secondary">
+                                RPG
+                            </p>
+
+                            <p>
+                                Monstros, magia e decisões importantes.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                R$ 99,90
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2" onclick="adicionarCarrinho('The Witcher',99.90)">
+
+                                Comprar
+
+                            </button>
+
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#witcherModal">
+
+                                Saiba Mais
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+
+                    <div class="card bg-black h-100">
+
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1250410/header.jpg"
+                            class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>Flight Simulator</h5>
+
+                            <p class="small text-secondary">
+                                Simulador
+                            </p>
+
+                            <p>
+                                Pilote aviões com realismo impressionante.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                R$ 239,90
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2"
+                                onclick="adicionarCarrinho('Flight Simulator',239.90)">
+
+                                Comprar
+
+                            </button>
+
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#flightModal">
+
+                                Saiba Mais
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- NBA 2K25 -->
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <div class="card bg-black h-100">
+
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2338770/header.jpg"
+                            class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>NBA 2K25</h5>
+
+                            <p class="small text-secondary">
+                                Basquete
+                            </p>
+
+                            <p>
+                                Simulação realista da NBA com modos carreira e online.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                R$ 299,90
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2" onclick="adicionarCarrinho('NBA 2K25',299.90)">
+                                Comprar
+                            </button>
+
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#nbaModal">
+                                Saiba Mais
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- eFootball -->
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <div class="card bg-black h-100">
+
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1665460/header.jpg"
+                            class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>eFootball</h5>
+
+                            <p class="small text-secondary">
+                                Futebol / Gratuito
+                            </p>
+
+                            <p>
+                                Futebol competitivo com foco em multiplayer online.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                Free
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2" onclick="adicionarCarrinho('eFootball',0)">
+                                Adicionar
+                            </button>
+
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#efootballModal">
+                                Saiba Mais
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UFC 5 -->
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <div class="card bg-black h-100">
+
+                        <img src="https://www.gamebrain.be/wp-content/uploads/2023/11/EA-Sports-UFC-5-1024x576.png"
+                            class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>EA Sports UFC 5</h5>
+
+                            <p class="small text-secondary">
+                                Luta / MMA
+                            </p>
+
+                            <p>
+                                Combates realistas de artes marciais mistas.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                R$ 279,90
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2" onclick="adicionarCarrinho('UFC 5',279.90)">
+                                Comprar
+                            </button>
+
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#ufcModal">
+                                Saiba Mais
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WWE 2K24 -->
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <div class="card bg-black h-100">
+
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2315690/header.jpg"
+                            class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>WWE 2K24</h5>
+
+                            <p class="small text-secondary">
+                                Wrestling
+                            </p>
+
+                            <p>
+                                Lutas profissionais com superestrelas da WWE.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                R$ 259,90
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2" onclick="adicionarCarrinho('WWE 2K24',259.90)">
+                                Comprar
+                            </button>
+
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#wweModal">
+                                Saiba Mais
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <div class="card bg-black h-100">
+
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1222680/header.jpg"
+                            class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>Need for Speed Heat</h5>
+
+                            <p class="small text-secondary">
+                                Corrida / Mundo Aberto
+                            </p>
+
+                            <p>
+                                Corridas ilegais de dia e perseguições intensas à noite.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                R$ 149,90
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2"
+                                onclick="adicionarCarrinho('Need for Speed Heat',149.90)">
+                                Comprar
+                            </button>
+
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#nfsModal">
+                                Saiba Mais
+                            </button>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <div class="card bg-black h-100">
+
+                        <img src="https://image.api.playstation.com/vulcan/ap/rnd/202202/2806/y4liLwBLXmhWHIvakDIMG1T1.jpg"
+                            class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>Gran Turismo 7</h5>
+
+                            <p class="small text-secondary">
+                                Simulador de Corrida
+                            </p>
+
+                            <p>
+                                Realismo extremo com carros e pistas detalhadas.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                R$ 299,90
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2"
+                                onclick="adicionarCarrinho('Gran Turismo 7',299.90)">
+                                Comprar
+                            </button>
+
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#gtModal">
+                                Saiba Mais
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <div class="card bg-black h-100">
+
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2488620/header.jpg"
+                            class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>F1 24</h5>
+
+                            <p class="small text-secondary">
+                                Fórmula 1 / Simulador
+                            </p>
+
+                            <p>
+                                Corridas oficiais da temporada com física realista.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                R$ 249,90
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2" onclick="adicionarCarrinho('F1 24',249.90)">
+                                Comprar
+                            </button>
+
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#f1Modal">
+                                Saiba Mais
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <div class="card bg-black h-100">
+
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2698940/715d1f1e53a55a46ca00e689a1b7651c17fa592f/header.jpg?t=1778082455"
+                            class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>The Crew Motorfest</h5>
+
+                            <p class="small text-secondary">
+                                Corrida / Mundo Aberto
+                            </p>
+
+                            <p>
+                                Explore ilhas e participe de eventos de corrida variados.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                R$ 199,90
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2"
+                                onclick="adicionarCarrinho('The Crew Motorfest',199.90)">
+                                Comprar
+                            </button>
+
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#crewModal">
+                                Saiba Mais
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+
+
+
+
+    <footer class="bg-black text-center text-white p-4 mt-5">
+
+        <h5>Player Zone</h5>
+
+        <p>
+            Sua plataforma de jogos.
+        </p>
+
+        <p>
+            © 2026 Todos os direitos reservados.
+        </p>
+
+    </footer>
+
+    <div class="row g-4">
+
+        <!-- Gta5 -->
+        <div class="modal fade" id="gtaModal" tabindex="-1">
+
+            <div class="modal-dialog modal-lg">
+
+                <div class="modal-content bg-dark text-white">
+
+                    <div class="modal-header border-secondary">
+
+                        <h4>GTA V</h4>
+
+                        <button class="btn-close btn-close-white" data-bs-dismiss="modal">
+                        </button>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/271590/header.jpg"
+                            class="img-fluid rounded mb-3">
+
+                        <p>
+
+                            Entre em Los Santos em uma experiência
+                            de ação, mundo aberto, carros,
+                            missões e multiplayer online.
+
+                        </p>
+
+                        <ul>
+
+                            <li>Mundo aberto</li>
+
+                            <li>Modo história</li>
+
+                            <li>Online multiplayer</li>
+
+                            <li>Gráficos incríveis</li>
+
+                        </ul>
+
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <button class="btn btn-primary">
+
+                            Comprar
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        </script>
+
+        <!-- CYBERPUNK -->
+        <div class="modal fade" id="cyberModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content bg-dark text-white">
+
+                    <div class="modal-header">
+                        <h5>Cyberpunk 2077</h5>
+                        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1091500/header.jpg"
+                            class="img-fluid rounded mb-3">
+
+                        <p>
+                            Entre em Night City, uma metrópole futurista dominada por tecnologia,
+                            corporações e escolhas morais perigosas. Viva a história de V em um mundo aberto cheio de
+                            possibilidades.
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-primary">Comprar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ELDEN RING -->
+        <div class="modal fade" id="eldenModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content bg-dark text-white">
+
+                    <div class="modal-header">
+                        <h5>Elden Ring</h5>
+                        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1245620/header.jpg"
+                            class="img-fluid rounded mb-3">
+
+                        <p>
+                            Explore um mundo sombrio criado por Hidetaka Miyazaki e George R. R. Martin.
+                            Enfrente chefes brutais, descubra segredos e sobreviva em um universo desafiador e épico.
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-primary">Comprar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- DYING LIGHT -->
+        <div class="modal fade" id="dyingModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content bg-dark text-white">
+
+                    <div class="modal-header">
+                        <h5>Dying Light</h5>
+                        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/239140/header.jpg"
+                            class="img-fluid rounded mb-3">
+
+                        <p>
+                            Um mundo aberto tomado por zumbis onde parkour é sua principal arma.
+                            Explore cidades perigosas durante o dia e sobreviva ao terror da noite.
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-primary">Comprar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- FORZA -->
+        <div class="modal fade" id="forzaModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content bg-dark text-white">
+
+                    <div class="modal-header">
+                        <h5>Forza Horizon 5</h5>
+                        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1551360/header.jpg"
+                            class="img-fluid rounded mb-3">
+
+                        <p>
+                            Viva corridas insanas no México em um mundo aberto gigantesco.
+                            Dirija centenas de carros, participe de eventos e explore paisagens realistas.
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-primary">Comprar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- EA FC -->
+        <div class="modal fade" id="fcModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content bg-dark text-white">
+
+                    <div class="modal-header">
+                        <h5>EA Sports FC 26</h5>
+                        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <img src="https://futcoin.net/uploads/blog/20250411_1744351747_medium.jpg"
+                            class="img-fluid rounded mb-3">
+
+                        <p>
+                            Monte seu time dos sonhos e jogue os maiores campeonatos do futebol mundial.
+                            Realismo aprimorado, inteligência artificial avançada e modos online competitivos.
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-primary">Comprar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- RDR2 -->
+        <div class="modal fade" id="rdrModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content bg-dark text-white">
+
+                    <div class="modal-header">
+                        <h5>Red Dead Redemption 2</h5>
+                        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1174180/header.jpg"
+                            class="img-fluid rounded mb-3">
+
+                        <p>
+                            Viva o fim da era do velho oeste em uma história profunda de honra, crime e sobrevivência.
+                            Explore um mundo aberto vivo e extremamente detalhado.
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-primary">Comprar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- COD -->
+        <div class="modal fade" id="codModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content bg-dark text-white">
+
+                    <div class="modal-header">
+                        <h5>Call of Duty</h5>
+                        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1938090/header.jpg"
+                            class="img-fluid rounded mb-3">
+
+                        <p>
+                            Experiência FPS intensa com combates multiplayer rápidos, armas realistas e mapas
+                            competitivos.
+                            Ideal para quem gosta de ação sem pausa.
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-primary">Comprar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- RE4 -->
+        <div class="modal fade" id="re4Modal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content bg-dark text-white">
+
+                    <div class="modal-header">
+                        <h5>Resident Evil 4</h5>
+                        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2050650/header.jpg"
+                            class="img-fluid rounded mb-3">
+
+                        <p>
+                            Sobreviva a uma vila infestada de criaturas assustadoras.
+                            Mistura de ação e terror com combate estratégico e atmosfera intensa.
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-primary">Comprar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- MK1 -->
+        <div class="modal fade" id="mkModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content bg-dark text-white">
+
+                    <div class="modal-header">
+                        <h5>Mortal Kombat 1</h5>
+                        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1971870/header.jpg"
+                            class="img-fluid rounded mb-3">
+
+                        <p>
+                            Lutas brutais com personagens icônicos, combos insanos e finalizações cinematográficas.
+                            Um dos jogos de luta mais populares do mundo.
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-primary">Comprar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- WITCHER -->
+        <div class="modal fade" id="witcherModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content bg-dark text-white">
+
+                    <div class="modal-header">
+                        <h5>The Witcher 3</h5>
+                        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/292030/header.jpg"
+                            class="img-fluid rounded mb-3">
+
+                        <p>
+                            Um RPG de mundo aberto com história profunda, escolhas que mudam o jogo e caçadas a monstros
+                            lendários.
+                            Explore um mundo medieval fantástico.
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-primary">Comprar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- FLIGHT SIM -->
+        <div class="modal fade" id="flightModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content bg-dark text-white">
+
+                    <div class="modal-header">
+                        <h5>Flight Simulator</h5>
+                        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1250410/header.jpg"
+                            class="img-fluid rounded mb-3">
+
+                        <p>
+                            Simulador ultra realista de aviação com física avançada, clima dinâmico e mapas globais
+                            detalhados.
+                            Experiência completa de pilotagem.
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-primary">Comprar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- NBA -->
+        <div class="modal fade" id="nbaModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content bg-dark text-white">
+
+                    <div class="modal-header">
+                        <h5>NBA 2K25</h5>
+                        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2338770/header.jpg"
+                            class="img-fluid rounded mb-3">
+
+                        <p>
+                            Experiência realista da NBA com modo carreira, MyTeam e partidas online.
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-primary">Comprar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- eFootball -->
+        <div class="modal fade" id="efootballModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content bg-dark text-white">
+
+                    <div class="modal-header">
+                        <h5>eFootball</h5>
+                        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1665460/header.jpg"
+                            class="img-fluid rounded mb-3">
+
+                        <p>
+                            Futebol online competitivo com foco em partidas rápidas e eventos globais.
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-primary">Jogar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- UFC 5 -->
+        <div class="modal fade" id="ufcModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content bg-dark text-white">
+
+                    <div class="modal-header">
+                        <h5>EA Sports UFC 5</h5>
+                        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <img src="https://www.gamebrain.be/wp-content/uploads/2023/11/EA-Sports-UFC-5-1024x576.png"
+                            class="img-fluid rounded mb-3">
+
+                        <p>
+                            Lutas de MMA com física realista, golpes técnicos e modos carreira.
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-primary">Comprar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- WWE -->
+        <div class="modal fade" id="wweModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content bg-dark text-white">
+
+                    <div class="modal-header">
+                        <h5>WWE 2K24</h5>
+                        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2315690/header.jpg"
+                            class="img-fluid rounded mb-3">
+
+                        <p>
+                            Lutas de wrestling profissional com superestrelas e modos história.
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-primary">Comprar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="nfsModal">
+
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content bg-dark text-white">
+
+                    <div class="modal-header">
+                        <h5>Need for Speed Heat</h5>
+                        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1222680/header.jpg"
+                            class="img-fluid rounded mb-3">
+
+                        <p>
+                            Corridas ilegais de dia e perseguições intensas da polícia à noite.
+                            Personalize carros e domine as ruas.
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-primary">Comprar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="gtModal">
+
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content bg-dark text-white">
+
+                    <div class="modal-header">
+                        <h5>Gran Turismo 7</h5>
+                        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <img src="https://image.api.playstation.com/vulcan/ap/rnd/202202/2806/y4liLwBLXmhWHIvakDIMG1T1.jpg"
+                            class="img-fluid rounded mb-3">
+
+                        <p>
+                            Simulador de corrida extremamente realista com carros e pistas detalhadas.
+                            Foco total em precisão e direção técnica.
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-primary">Comprar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="f1Modal">
+
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content bg-dark text-white">
+
+                    <div class="modal-header">
+                        <h5>F1 24</h5>
+                        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2488620/header.jpg"
+                            class="img-fluid rounded mb-3">
+
+                        <p>
+                            Experimente a temporada oficial da Fórmula 1 com física realista,
+                            pistas oficiais e competição intensa.
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-primary">Comprar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="crewModal">
+
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content bg-dark text-white">
+
+                    <div class="modal-header">
+                        <h5>The Crew Motorfest</h5>
+                        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2698940/715d1f1e53a55a46ca00e689a1b7651c17fa592f/header.jpg?t=1778082455"
+                            class="img-fluid rounded mb-3">
+
+                        <p>
+                            Explore ilhas paradisíacas e participe de eventos de corrida variados.
+                            Mundo aberto com liberdade total de direção.
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-primary">Comprar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="carrinhoModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content bg-dark text-white">
+
+                <div class="modal-header">
+                    <h5>Carrinho de Compras</h5>
+                    <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <ul id="listaCarrinho" class="list-group list-group-dark"></ul>
+
+                    <h5 class="mt-3">
+                        Total: R$ <span id="totalCarrinho">0</span>
+                    </h5>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-danger" onclick="limparCarrinho()">
+                        Limpar
+                    </button>
+
+                    <button class="btn btn-success" onclick="finalizarCompra()">
+                        Finalizar Compra
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script>
+
+        let usuario = localStorage.getItem("email");
+
+        if (usuario) {
+
+            document.getElementById("usuario").innerHTML =
+                "Olá, " + usuario;
+
+        }
+    </script>
+
+    <script>
+        let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+        document.getElementById("contadorCarrinho").innerHTML = carrinho.length;
+
+        function adicionarCarrinho(nome, preco) {
+            carrinho.push({ nome, preco });
+
+            localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+            document.getElementById("contadorCarrinho").innerHTML = carrinho.length;
+
+            alert(nome + " adicionado ao carrinho!");
+        }
+
+        function pesquisar(event) {
+            event.preventDefault();
+
+            let texto = document.querySelector("input[type='search']").value.toLowerCase();
+            let cards = document.querySelectorAll(".card");
+
+            let encontrados = 0;
+
+            cards.forEach(card => {
+                let nome = card.querySelector("h5").innerText.toLowerCase();
+
+                if (nome.includes(texto)) {
+                    card.parentElement.style.display = "block";
+                    encontrados++;
+                } else {
+                    card.parentElement.style.display = "none";
+                }
+            });
+
+            document.getElementById("btnVoltar").style.display = "inline-block";
+            document.getElementById("semResultados").style.display =
+                encontrados === 0 ? "block" : "none";
+        }
+
+        function voltarCatalogo() {
+            document.querySelectorAll(".card").forEach(card => {
+                card.parentElement.style.display = "block";
+            });
+
+            document.querySelector("input[type='search']").value = "";
+
+            document.getElementById("btnVoltar").style.display = "none";
+            document.getElementById("semResultados").style.display = "none";
+        }
+
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape") voltarCatalogo();
+        });
+
+
+        function abrirCarrinho() {
+            renderCarrinho();
+            new bootstrap.Modal(document.getElementById("carrinhoModal")).show();
+        }
+
+        function renderCarrinho() {
+            let lista = document.getElementById("listaCarrinho");
+            lista.innerHTML = "";
+
+            let total = 0;
+
+            carrinho.forEach((item, index) => {
+                total += Number(item.preco);
+
+                lista.innerHTML += `
+            <li class="list-group-item bg-black text-white d-flex justify-content-between">
+                ${item.nome} - R$ ${item.preco}
+                <button class="btn btn-sm btn-danger" onclick="removerItem(${index})">X</button>
+            </li>
+        `;
+            });
+
+            document.getElementById("totalCarrinho").innerText = total.toFixed(2);
+        }
+
+        function removerItem(index) {
+            carrinho.splice(index, 1);
+            localStorage.setItem("carrinho", JSON.stringify(carrinho));
+            document.getElementById("contadorCarrinho").innerHTML = carrinho.length;
+            renderCarrinho();
+        }
+
+        function limparCarrinho() {
+            carrinho = [];
+            localStorage.setItem("carrinho", JSON.stringify(carrinho));
+            document.getElementById("contadorCarrinho").innerHTML = 0;
+            renderCarrinho();
+        }
+
+        function finalizarCompra() {
+            if (carrinho.length === 0) {
+                alert("Carrinho vazio!");
+                return;
+            }
+
+            alert("Compra finalizada com sucesso!");
+
+            carrinho = [];
+            localStorage.removeItem("carrinho");
+
+            document.getElementById("contadorCarrinho").innerHTML = 0;
+
+            bootstrap.Modal.getInstance(
+                document.getElementById("carrinhoModal")
+            ).hide();
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

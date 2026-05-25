@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Esportes - Player Zone</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-dark">
+
+    <nav class="navbar bg-black">
+
+        <div class="container-fluid">
+
+            <a class="navbar-brand text-white">
+                Player Zone
+            </a>
+
+            <a href="#" class="btn btn-outline-warning me-3">
+
+                Carrinho
+
+                <span id="contadorCarrinho" class="badge bg-danger">
+
+                    0
+
+                </span>
+
+            </a>
+
+            <a href="index.html" class="btn btn-outline-primary">
+                Voltar
+            </a>
+
+        </div>
+
+    </nav>
+
+    <div class="container mt-5">
+
+        <h1 class="text-white text-center mb-5">
+            JOGOS DE ESPORTE
+        </h1>
+
+        <div class="row">
+
+            <div class="row g-4">
+
+                <!-- EA FC 24 -->
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <div class="card bg-black h-100">
+
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1811260/header.jpg"
+                            class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>EA Sports FC 24</h5>
+
+                            <p class="small text-secondary">
+                                Futebol
+                            </p>
+
+                            <p>
+                                O simulador de futebol mais popular do mundo.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                R$ 349,90
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2" onclick="adicionarCarrinho('EA FC 24',349.90)">
+                                Comprar
+                            </button>
+
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#fcModal">
+                                Saiba Mais
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NBA 2K25 -->
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <div class="card bg-black h-100">
+
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2338770/header.jpg"
+                            class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>NBA 2K25</h5>
+
+                            <p class="small text-secondary">
+                                Basquete
+                            </p>
+
+                            <p>
+                                Simulação realista da NBA com modos carreira e online.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                R$ 299,90
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2" onclick="adicionarCarrinho('NBA 2K25',299.90)">
+                                Comprar
+                            </button>
+
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#nbaModal">
+                                Saiba Mais
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- eFootball -->
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <div class="card bg-black h-100">
+
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1665460/header.jpg"
+                            class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>eFootball</h5>
+
+                            <p class="small text-secondary">
+                                Futebol / Gratuito
+                            </p>
+
+                            <p>
+                                Futebol competitivo com foco em multiplayer online.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                Free
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2" onclick="adicionarCarrinho('eFootball',0)">
+                                Adicionar
+                            </button>
+
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#efootballModal">
+                                Saiba Mais
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UFC 5 -->
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <div class="card bg-black h-100">
+
+                        <img src="https://www.gamebrain.be/wp-content/uploads/2023/11/EA-Sports-UFC-5-1024x576.png"
+                            class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>EA Sports UFC 5</h5>
+
+                            <p class="small text-secondary">
+                                Luta / MMA
+                            </p>
+
+                            <p>
+                                Combates realistas de artes marciais mistas.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                R$ 279,90
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2" onclick="adicionarCarrinho('UFC 5',279.90)">
+                                Comprar
+                            </button>
+
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#ufcModal">
+                                Saiba Mais
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WWE 2K24 -->
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <div class="card bg-black h-100">
+
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2315690/header.jpg"
+                            class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>WWE 2K24</h5>
+
+                            <p class="small text-secondary">
+                                Wrestling
+                            </p>
+
+                            <p>
+                                Lutas profissionais com superestrelas da WWE.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                R$ 259,90
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2" onclick="adicionarCarrinho('WWE 2K24',259.90)">
+                                Comprar
+                            </button>
+
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#wweModal">
+                                Saiba Mais
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- EA FC -->
+            <div class="modal fade" id="fcModal">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content bg-dark text-white">
+
+                        <div class="modal-header">
+                            <h5>EA Sports FC 24</h5>
+                            <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1811260/header.jpg"
+                                class="img-fluid rounded mb-3">
+
+                            <p>
+                                Simulador de futebol com times reais, campeonatos licenciados e modos online
+                                competitivos.
+                            </p>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button class="btn btn-primary">Comprar</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- NBA -->
+            <div class="modal fade" id="nbaModal">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content bg-dark text-white">
+
+                        <div class="modal-header">
+                            <h5>NBA 2K25</h5>
+                            <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2338770/header.jpg"
+                                class="img-fluid rounded mb-3">
+
+                            <p>
+                                Experiência realista da NBA com modo carreira, MyTeam e partidas online.
+                            </p>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button class="btn btn-primary">Comprar</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- eFootball -->
+            <div class="modal fade" id="efootballModal">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content bg-dark text-white">
+
+                        <div class="modal-header">
+                            <h5>eFootball</h5>
+                            <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1665460/header.jpg"
+                                class="img-fluid rounded mb-3">
+
+                            <p>
+                                Futebol online competitivo com foco em partidas rápidas e eventos globais.
+                            </p>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button class="btn btn-primary">Jogar</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- UFC 5 -->
+            <div class="modal fade" id="ufcModal">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content bg-dark text-white">
+
+                        <div class="modal-header">
+                            <h5>EA Sports UFC 5</h5>
+                            <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <img src="https://www.gamebrain.be/wp-content/uploads/2023/11/EA-Sports-UFC-5-1024x576.png"
+                                class="img-fluid rounded mb-3">
+
+                            <p>
+                                Lutas de MMA com física realista, golpes técnicos e modos carreira.
+                            </p>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button class="btn btn-primary">Comprar</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- WWE -->
+            <div class="modal fade" id="wweModal">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content bg-dark text-white">
+
+                        <div class="modal-header">
+                            <h5>WWE 2K24</h5>
+                            <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2315690/header.jpg"
+                                class="img-fluid rounded mb-3">
+
+                            <p>
+                                Lutas de wrestling profissional com superestrelas e modos história.
+                            </p>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button class="btn btn-primary">Comprar</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+             <script>
+                let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+                document.getElementById("contadorCarrinho").innerHTML = carrinho.length;
+
+                function adicionarCarrinho(nome, preco) {
+                    carrinho.push({ nome, preco });
+
+                    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+                    document.getElementById("contadorCarrinho").innerHTML = carrinho.length;
+
+                    alert(nome + " adicionado ao carrinho!");
+                }
+
+                function pesquisar(event) {
+                    event.preventDefault();
+
+                    let texto = document.querySelector("input[type='search']").value.toLowerCase();
+                    let cards = document.querySelectorAll(".card");
+
+                    let encontrados = 0;
+
+                    cards.forEach(card => {
+                        let nome = card.querySelector("h5").innerText.toLowerCase();
+
+                        if (nome.includes(texto)) {
+                            card.parentElement.style.display = "block";
+                            encontrados++;
+                        } else {
+                            card.parentElement.style.display = "none";
+                        }
+                    });
+
+                    document.getElementById("btnVoltar").style.display = "inline-block";
+                    document.getElementById("semResultados").style.display =
+                        encontrados === 0 ? "block" : "none";
+                }
+
+                function voltarCatalogo() {
+                    document.querySelectorAll(".card").forEach(card => {
+                        card.parentElement.style.display = "block";
+                    });
+
+                    document.querySelector("input[type='search']").value = "";
+
+                    document.getElementById("btnVoltar").style.display = "none";
+                    document.getElementById("semResultados").style.display = "none";
+                }
+
+                document.addEventListener("keydown", function (e) {
+                    if (e.key === "Escape") voltarCatalogo();
+                });
+            </script>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

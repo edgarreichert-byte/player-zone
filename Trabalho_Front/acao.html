@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>AÇÃO - Player Zone</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-dark">
+
+    <nav class="navbar bg-black">
+
+        <div class="container-fluid">
+
+            <a class="navbar-brand text-white">
+                Player Zone
+            </a>
+
+            <a href="#" class="btn btn-outline-warning me-3">
+
+                Carrinho
+
+                <span id="contadorCarrinho" class="badge bg-danger">
+
+                    0
+
+                </span>
+
+            </a>
+
+            <a href="index.html" class="btn btn-outline-primary">
+                Voltar
+            </a>
+
+        </div>
+
+    </nav>
+
+    <div class="container mt-5">
+
+        <h1 class="text-white text-center mb-5">
+            JOGOS DE AÇÃO
+        </h1>
+
+        <div class="row">
+
+            <div class="row g-4">
+
+                <!-- CYBERPUNK -->
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <div class="card bg-black h-100">
+
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1091500/header.jpg"
+                            class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>Cyberpunk 2077</h5>
+
+                            <p class="small text-secondary">
+                                RPG / Ação
+                            </p>
+
+                            <p>
+                                Explore Night City em um mundo futurista cheio de escolhas.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                R$ 149,90
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2"
+                                onclick="adicionarCarrinho('Cyberpunk 2077',149.90)">
+                                Comprar
+                            </button>
+
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#cyberModal">
+                                Saiba Mais
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GTA V -->
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <div class="card bg-black h-100">
+
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/271590/header.jpg"
+                            class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>GTA V</h5>
+
+                            <p class="small text-secondary">
+                                Mundo Aberto / Ação
+                            </p>
+
+                            <p>
+                                Assaltos, perseguições e caos em Los Santos.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                R$ 89,90
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2" onclick="adicionarCarrinho('GTA V',89.90)">
+                                Comprar
+                            </button>
+
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#gtaModal">
+                                Saiba Mais
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ELDEN RING -->
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <div class="card bg-black h-100">
+
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1245620/header.jpg"
+                            class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>Elden Ring</h5>
+
+                            <p class="small text-secondary">
+                                Soulslike / Ação
+                            </p>
+
+                            <p>
+                                Um mundo sombrio cheio de chefes e desafios brutais.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                R$ 229,90
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2" onclick="adicionarCarrinho('Elden Ring',229.90)">
+                                Comprar
+                            </button>
+
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#eldenModal">
+                                Saiba Mais
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RED DEAD 2 -->
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <div class="card bg-black h-100">
+
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1174180/header.jpg"
+                            class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>Red Dead Redemption 2</h5>
+
+                            <p class="small text-secondary">
+                                Ação / Aventura
+                            </p>
+
+                            <p>
+                                Viva o velho oeste com uma história cinematográfica.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                R$ 129,90
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2" onclick="adicionarCarrinho('RDR2',129.90)">
+                                Comprar
+                            </button>
+
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#rdrModal">
+                                Saiba Mais
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CALL OF DUTY -->
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <div class="card bg-black h-100">
+
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1938090/header.jpg"
+                            class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>Call of Duty</h5>
+
+                            <p class="small text-secondary">
+                                FPS / Ação
+                            </p>
+
+                            <p>
+                                Combate intenso em batalhas multiplayer.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                R$ 289,90
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2"
+                                onclick="adicionarCarrinho('Call of Duty',289.90)">
+                                Comprar
+                            </button>
+
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#codModal">
+                                Saiba Mais
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RESIDENT EVIL 4 -->
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <div class="card bg-black h-100">
+
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2050650/header.jpg"
+                            class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>Resident Evil 4</h5>
+
+                            <p class="small text-secondary">
+                                Terror / Ação
+                            </p>
+
+                            <p>
+                                Sobreviva a criaturas em uma vila sombria.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                R$ 179,90
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2" onclick="adicionarCarrinho('RE4',179.90)">
+                                Comprar
+                            </button>
+
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#re4Modal">
+                                Saiba Mais
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MORTAL KOMBAT 1 -->
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <div class="card bg-black h-100">
+
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1971870/header.jpg"
+                            class="card-img-top">
+
+                        <div class="card-body text-white">
+
+                            <h5>Mortal Kombat 1</h5>
+
+                            <p class="small text-secondary">
+                                Luta / Ação
+                            </p>
+
+                            <p>
+                                Combates brutais com finalizações épicas.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                R$ 249,90
+                            </p>
+
+                            <button class="btn btn-primary w-100 mb-2" onclick="adicionarCarrinho('MK1',249.90)">
+                                Comprar
+                            </button>
+
+                            <button class="btn btn-outline-light w-100" data-bs-toggle="modal"
+                                data-bs-target="#mkModal">
+                                Saiba Mais
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="modal fade" id="cyberModal">
+
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content bg-dark text-white">
+
+                        <div class="modal-header">
+                            <h5>Cyberpunk 2077</h5>
+                            <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1091500/header.jpg"
+                                class="img-fluid rounded mb-3">
+
+                            <p>
+                                Explore Night City em um futuro dominado por tecnologia,
+                                corporações e decisões perigosas em um mundo aberto cheio de ação.
+                            </p>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button class="btn btn-primary">Comprar</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="modal fade" id="gtaModal">
+
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content bg-dark text-white">
+
+                        <div class="modal-header">
+                            <h5>GTA V</h5>
+                            <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/271590/header.jpg"
+                                class="img-fluid rounded mb-3">
+
+                            <p>
+                                Viva o crime em Los Santos com três protagonistas,
+                                assaltos, perseguições e um mundo aberto cheio de possibilidades.
+                            </p>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button class="btn btn-primary">Comprar</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="modal fade" id="dyingModal">
+
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content bg-dark text-white">
+
+                        <div class="modal-header">
+                            <h5>Dying Light</h5>
+                            <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/239140/header.jpg"
+                                class="img-fluid rounded mb-3">
+
+                            <p>
+                                Um mundo aberto tomado por zumbis onde parkour é sua principal arma de sobrevivência.
+                                Ação intensa de dia e terror à noite.
+                            </p>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button class="btn btn-primary">Comprar</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="codModal">
+
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content bg-dark text-white">
+
+                        <div class="modal-header">
+                            <h5>Call of Duty</h5>
+                            <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1938090/header.jpg"
+                                class="img-fluid rounded mb-3">
+
+                            <p>
+                                FPS de ação intensa com combates multiplayer rápidos,
+                                armas realistas e batalhas online competitivas.
+                            </p>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button class="btn btn-primary">Comprar</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="re4Modal">
+
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content bg-dark text-white">
+
+                        <div class="modal-header">
+                            <h5>Resident Evil 4</h5>
+                            <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2050650/header.jpg"
+                                class="img-fluid rounded mb-3">
+
+                            <p>
+                                Sobreviva a uma vila infestada de criaturas em uma mistura de ação e terror.
+                                Combate estratégico e atmosfera intensa.
+                            </p>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button class="btn btn-primary">Comprar</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="mkModal">
+
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content bg-dark text-white">
+
+                        <div class="modal-header">
+                            <h5>Mortal Kombat 1</h5>
+                            <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1971870/header.jpg"
+                                class="img-fluid rounded mb-3">
+
+                            <p>
+                                Lutas brutais com combos, fatalities e personagens icônicos.
+                                Um dos jogos de luta mais intensos da franquia.
+                            </p>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button class="btn btn-primary">Comprar</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="rdrModal">
+
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content bg-dark text-white">
+
+                        <div class="modal-header">
+                            <h5>Red Dead Redemption 2</h5>
+                            <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1174180/header.jpg"
+                                class="img-fluid rounded mb-3">
+
+                            <p>
+                                Viva o velho oeste em uma história profunda de crime, honra e sobrevivência.
+                                Mundo aberto extremamente detalhado e realista.
+                            </p>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button class="btn btn-primary">Comprar</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="eldenModal">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content bg-dark text-white">
+
+                        <div class="modal-header">
+                            <h5>Elden Ring</h5>
+                            <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1245620/header.jpg"
+                                class="img-fluid rounded mb-3">
+
+                            <p>
+                                Explore um mundo sombrio criado por Hidetaka Miyazaki e George R. R. Martin.
+                                Enfrente chefes brutais, descubra segredos e sobreviva em um universo desafiador e
+                                épico.
+                            </p>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button class="btn btn-primary">Comprar</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <script>
+                let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+                document.getElementById("contadorCarrinho").innerHTML = carrinho.length;
+
+                function adicionarCarrinho(nome, preco) {
+                    carrinho.push({ nome, preco });
+
+                    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+                    document.getElementById("contadorCarrinho").innerHTML = carrinho.length;
+
+                    alert(nome + " adicionado ao carrinho!");
+                }
+
+                function pesquisar(event) {
+                    event.preventDefault();
+
+                    let texto = document.querySelector("input[type='search']").value.toLowerCase();
+                    let cards = document.querySelectorAll(".card");
+
+                    let encontrados = 0;
+
+                    cards.forEach(card => {
+                        let nome = card.querySelector("h5").innerText.toLowerCase();
+
+                        if (nome.includes(texto)) {
+                            card.parentElement.style.display = "block";
+                            encontrados++;
+                        } else {
+                            card.parentElement.style.display = "none";
+                        }
+                    });
+
+                    document.getElementById("btnVoltar").style.display = "inline-block";
+                    document.getElementById("semResultados").style.display =
+                        encontrados === 0 ? "block" : "none";
+                }
+
+                function voltarCatalogo() {
+                    document.querySelectorAll(".card").forEach(card => {
+                        card.parentElement.style.display = "block";
+                    });
+
+                    document.querySelector("input[type='search']").value = "";
+
+                    document.getElementById("btnVoltar").style.display = "none";
+                    document.getElementById("semResultados").style.display = "none";
+                }
+
+                document.addEventListener("keydown", function (e) {
+                    if (e.key === "Escape") voltarCatalogo();
+                });
+            </script>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
+</body>
+
+</html>
+
+</body>
+
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Corrida - Player Zone</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-dark">
+
+    <nav class="navbar bg-black">
+
+        <div class="container-fluid">
+
+            <a class="navbar-brand text-white">
+                Player Zone
+            </a>
+            <a href="#" class="btn btn-outline-warning me-3">
+
+                Carrinho
+
+                <span id="contadorCarrinho" class="badge bg-danger">
+
+                    0
+
+                </span>
+
+            </a>
+
+            <a href="index.html" class="btn btn-outline-primary">
+                Voltar
+            </a>
+
+        </div>
+
+    </nav>
+
+    <div class="container mt-5">
+
+        <h1 class="text-white text-center mb-5">
+            JOGOS DE CORRIDA
+        </h1>
+        <div class="row g-4">
+            <div class="modal fade" id="forzaModal">
+
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content bg-dark text-white">
+                        <div class="modal-header">
+                            <h5>Forza Horizon 5</h5>
+                            <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1551360/header.jpg"
+                                class="img-fluid rounded mb-3">
+                            <p> Viva corridas insanas no México em um mundo aberto gigantesco. Dirija centenas de
+                                carros,
+                                participe de eventos e explore paisagens realistas. </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary">Comprar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                <div class="card bg-black h-100">
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1551360/header.jpg"
+                        class="card-img-top">
+                    <div class="card-body text-white">
+                        <h5>Forza Horizon 5</h5>
+                        <p class="small text-secondary"> Corrida </p>
+                        <p> Velocidade extrema em mundo aberto. </p>
+                        <p class="text-primary fw-bold"> R$ 199,90 </p>
+                        <button class="btn btn-primary w-100 mb-2" onclick="adicionarCarrinho('Forza Horizon',199.90)">
+                            Comprar </button>
+                        <button class="btn btn-outline-light w-100" data-bs-toggle="modal" data-bs-target="#forzaModal">
+                            Saiba Mais 
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                <div class="card bg-black h-100">
+
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1222680/header.jpg"
+                        class="card-img-top">
+
+                    <div class="card-body text-white">
+
+                        <h5>Need for Speed Heat</h5>
+
+                        <p class="small text-secondary">
+                            Corrida / Mundo Aberto
+                        </p>
+
+                        <p>
+                            Corridas ilegais de dia e perseguições intensas à noite.
+                        </p>
+
+                        <p class="text-primary fw-bold">
+                            R$ 149,90
+                        </p>
+
+                        <button class="btn btn-primary w-100 mb-2"
+                            onclick="adicionarCarrinho('Need for Speed Heat',149.90)">
+                            Comprar
+                        </button>
+
+                        <button class="btn btn-outline-light w-100" data-bs-toggle="modal" data-bs-target="#nfsModal">
+                            Saiba Mais 
+                        </button>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                <div class="card bg-black h-100">
+
+                    <img src="https://image.api.playstation.com/vulcan/ap/rnd/202202/2806/y4liLwBLXmhWHIvakDIMG1T1.jpg"
+                        class="card-img-top">
+
+                    <div class="card-body text-white">
+
+                        <h5>Gran Turismo 7</h5>
+
+                        <p class="small text-secondary">
+                            Simulador de Corrida
+                        </p>
+
+                        <p>
+                            Realismo extremo com carros e pistas detalhadas.
+                        </p>
+
+                        <p class="text-primary fw-bold">
+                            R$ 299,90
+                        </p>
+
+                        <button class="btn btn-primary w-100 mb-2" onclick="adicionarCarrinho('Gran Turismo 7',299.90)">
+                            Comprar
+                        </button>
+
+                       <button class="btn btn-outline-light w-100" data-bs-toggle="modal" data-bs-target="#gtModal">
+                            Saiba Mais 
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                <div class="card bg-black h-100">
+
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2488620/header.jpg"
+                        class="card-img-top">
+
+                    <div class="card-body text-white">
+
+                        <h5>F1 24</h5>
+
+                        <p class="small text-secondary">
+                            Fórmula 1 / Simulador
+                        </p>
+
+                        <p>
+                            Corridas oficiais da temporada com física realista.
+                        </p>
+
+                        <p class="text-primary fw-bold">
+                            R$ 249,90
+                        </p>
+
+                        <button class="btn btn-primary w-100 mb-2" onclick="adicionarCarrinho('F1 24',249.90)">
+                            Comprar
+                        </button>
+
+                        <button class="btn btn-outline-light w-100" data-bs-toggle="modal" data-bs-target="#f1Modal">
+                            Saiba Mais 
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                <div class="card bg-black h-100">
+
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2698940/715d1f1e53a55a46ca00e689a1b7651c17fa592f/header.jpg?t=1778082455"
+                        class="card-img-top">
+
+                    <div class="card-body text-white">
+
+                        <h5>The Crew Motorfest</h5>
+
+                        <p class="small text-secondary">
+                            Corrida / Mundo Aberto
+                        </p>
+
+                        <p>
+                            Explore ilhas e participe de eventos de corrida variados.
+                        </p>
+
+                        <p class="text-primary fw-bold">
+                            R$ 199,90
+                        </p>
+
+                        <button class="btn btn-primary w-100 mb-2"
+                            onclick="adicionarCarrinho('The Crew Motorfest',199.90)">
+                            Comprar
+                        </button>
+
+                        <button class="btn btn-outline-light w-100" data-bs-toggle="modal" data-bs-target="#crewModal">
+                            Saiba Mais 
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+<div class="modal fade" id="nfsModal">
+
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bg-dark text-white">
+
+            <div class="modal-header">
+                <h5>Need for Speed Heat</h5>
+                <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1222680/header.jpg"
+                    class="img-fluid rounded mb-3">
+
+                <p>
+                    Corridas ilegais de dia e perseguições intensas da polícia à noite.
+                    Personalize carros e domine as ruas.
+                </p>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-primary">Comprar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="nfsModal">
+
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bg-dark text-white">
+
+            <div class="modal-header">
+                <h5>Need for Speed Heat</h5>
+                <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1222680/header.jpg"
+                    class="img-fluid rounded mb-3">
+
+                <p>
+                    Corridas ilegais de dia e perseguições intensas da polícia à noite.
+                    Personalize carros e domine as ruas.
+                </p>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-primary">Comprar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="gtModal">
+
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bg-dark text-white">
+
+            <div class="modal-header">
+                <h5>Gran Turismo 7</h5>
+                <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <img src="https://image.api.playstation.com/vulcan/ap/rnd/202202/2806/y4liLwBLXmhWHIvakDIMG1T1.jpg"
+                    class="img-fluid rounded mb-3">
+
+                <p>
+                    Simulador de corrida extremamente realista com carros e pistas detalhadas.
+                    Foco total em precisão e direção técnica.
+                </p>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-primary">Comprar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="f1Modal">
+
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bg-dark text-white">
+
+            <div class="modal-header">
+                <h5>F1 24</h5>
+                <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2488620/header.jpg"
+                    class="img-fluid rounded mb-3">
+
+                <p>
+                    Experimente a temporada oficial da Fórmula 1 com física realista,
+                    pistas oficiais e competição intensa.
+                </p>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-primary">Comprar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="crewModal">
+
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bg-dark text-white">
+
+            <div class="modal-header">
+                <h5>The Crew Motorfest</h5>
+                <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2698940/715d1f1e53a55a46ca00e689a1b7651c17fa592f/header.jpg?t=1778082455"
+                    class="img-fluid rounded mb-3">
+
+                <p>
+                    Explore ilhas paradisíacas e participe de eventos de corrida variados.
+                    Mundo aberto com liberdade total de direção.
+                </p>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-primary">Comprar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <script>
+            let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+            document.getElementById("contadorCarrinho").innerHTML = carrinho.length;
+
+            function adicionarCarrinho(nome, preco) {
+                carrinho.push({ nome, preco });
+
+                localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+                document.getElementById("contadorCarrinho").innerHTML = carrinho.length;
+
+                alert(nome + " adicionado ao carrinho!");
+            }
+
+            function pesquisar(event) {
+                event.preventDefault();
+
+                let texto = document.querySelector("input[type='search']").value.toLowerCase();
+                let cards = document.querySelectorAll(".card");
+
+                let encontrados = 0;
+
+                cards.forEach(card => {
+                    let nome = card.querySelector("h5").innerText.toLowerCase();
+
+                    if (nome.includes(texto)) {
+                        card.parentElement.style.display = "block";
+                        encontrados++;
+                    } else {
+                        card.parentElement.style.display = "none";
+                    }
+                });
+
+                document.getElementById("btnVoltar").style.display = "inline-block";
+                document.getElementById("semResultados").style.display =
+                    encontrados === 0 ? "block" : "none";
+            }
+
+            function voltarCatalogo() {
+                document.querySelectorAll(".card").forEach(card => {
+                    card.parentElement.style.display = "block";
+                });
+
+                document.querySelector("input[type='search']").value = "";
+
+                document.getElementById("btnVoltar").style.display = "none";
+                document.getElementById("semResultados").style.display = "none";
+            }
+
+            document.addEventListener("keydown", function (e) {
+                if (e.key === "Escape") voltarCatalogo();
+            });
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
+</body>
+
+</html>
