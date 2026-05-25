@@ -1,6 +1,6 @@
 Player Zone - Plataforma de Jogos Digitais
 
-#Sobre o Projeto
+Sobre o Projeto
 
 O Player Zone é uma plataforma web desenvolvida com o objetivo de simular uma loja virtual de jogos digitais, proporcionando uma experiência de navegação moderna, organizada e responsiva.
 O projeto foi construído utilizando HTML5, JavaScript e Bootstrap 5, com foco em responsividade e usabilidade em diferentes dispositivos.
